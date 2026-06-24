@@ -1,16 +1,27 @@
-## Hi there 👋
+# Hey, I'm Samuele
 
-<!--
-**1brecane/1brecane** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Fullstack developer** with a strong preference for the **backend** — I'm way more at home dealing with APIs, microservices, and databases than fighting with CSS.
 
-Here are some ideas to get you started:
+My main stack is **Node.js**, **PHP/Laravel**, **MySQL**, **Redis**, **MongoDB** and **RabbitMQ** with infrastructure experience thrown in (Docker, Proxmox, Linux).
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+When I'm not writing code, I'm probably tinkering with my homelab or wondering why a service won't start.
+
+```text
+       ~+
+
+                 *       +
+           '                  |
+       ()    .-.,="``"=.    - o -
+             '=/_       \     |
+          *   |  '=._    |
+               \     `=./`,        '
+            .   '=.__.=' `='      *
+   +                         +
+        O      *        '       .
+
+```
+
+---
+
+📍 Verona, Italy
+
