@@ -7,8 +7,7 @@ My main stack is **Node.js**, **PHP/Laravel**, **MySQL**, **Redis**, **MongoDB**
 When I'm not writing code, I'm probably tinkering with my homelab or wondering why a service won't start.
 
 ```text
-       ~+
-
+   .       +                    *
                  *       +
            '                  |
        ()    .-.,="``"=.    - o -
