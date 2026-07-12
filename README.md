@@ -25,7 +25,7 @@ When I'm not writing code, I'm probably tinkering with my homelab or wondering w
 ---
 
 <div align="center">
-  <a href="https://samueleruaro.dev"><img src="https://img.shields.io/badge/samueleruaro.dev-0b0e14?style=for-the-badge&logo=firefoxbrowser&logoColor=e6b450" alt="Portfolio"></a>
+  <a href="https://samueleruaro.com"><img src="https://img.shields.io/badge/samueleruaro.com-0b0e14?style=for-the-badge&logo=firefoxbrowser&logoColor=e6b450" alt="Portfolio"></a>
   <a href="https://www.linkedin.com/in/samuele-ruaro-145251307/"><img src="https://img.shields.io/badge/LinkedIn-0b0e14?style=for-the-badge&logo=linkedin&logoColor=e6b450" alt="LinkedIn"></a>
   <a href="mailto:samueleruaro@gmail.com"><img src="https://img.shields.io/badge/Email-0b0e14?style=for-the-badge&logo=gmail&logoColor=e6b450" alt="Email"></a>
   <br><br>
