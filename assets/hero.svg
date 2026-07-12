@@ -18,6 +18,8 @@
     @keyframes twinkle { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.8; } }
     .pulse { animation: pulse 5s ease-in-out infinite; }
     @keyframes pulse { 0%, 100% { opacity: 0.45; } 50% { opacity: 0.75; } }
+    .pulse2 { animation: pulse2 5s ease-in-out infinite; }
+    @keyframes pulse2 { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
     .shoot { animation: shoot 13s linear infinite; opacity: 0; }
     @keyframes shoot {
       0%, 71% { transform: translate(0, 0); opacity: 0; }
@@ -62,9 +64,23 @@
       <animateMotion dur="26s" repeatCount="indefinite" path="M 800,300 a 360,120 0 1,1 -720,0 a 360,120 0 1,1 720,0"/>
     </circle>
 
-    <!-- planet horizon with red rim glow -->
-    <circle class="pulse" cx="440" cy="700" r="470" fill="none" stroke="#e5484d" stroke-width="3" filter="url(#glow)"/>
-    <circle cx="440" cy="700" r="470" fill="#0d1320" stroke="#e5484d" stroke-width="1.5"/>
+    <!-- ascii planet horizon with red rim glow -->
+    <circle class="pulse" cx="440" cy="985" r="800" fill="none" stroke="#e5484d" stroke-width="4" filter="url(#glow)"/>
+    <g font-family="'JetBrains Mono','Fira Code',Consolas,'Liberation Mono',Menlo,monospace" font-size="15" xml:space="preserve">
+      <g class="pulse2" fill="#f25f5f">
+        <text x="4" y="196" textLength="585" lengthAdjust="spacing">                                =================================</text>
+        <text x="4" y="212" textLength="657" lengthAdjust="spacing">                         =======                                 ========</text>
+        <text x="4" y="228" textLength="711" lengthAdjust="spacing">                   ======                                                ======</text>
+        <text x="4" y="244" textLength="747" lengthAdjust="spacing">               ====                                                            ====</text>
+        <text x="4" y="260" textLength="783" lengthAdjust="spacing">           ====                                                                    ====</text>
+      </g>
+      <g fill="#4f5b77">
+        <text x="4" y="212" textLength="585" lengthAdjust="spacing">                                    '.,:     '.,:     '.,:     '.</text>
+        <text x="4" y="228" textLength="648" lengthAdjust="spacing">                         ,:     '.,:     '.,:     '.,:     '.,:     '.,:</text>
+        <text x="4" y="244" textLength="693" lengthAdjust="spacing">                   '.,:     '.,:     '.,:     '.,:     '.,:     '.,:     '.,:</text>
+        <text x="4" y="260" textLength="738" lengthAdjust="spacing">               '.,:     '.,:     '.,:     '.,:     '.,:     '.,:     '.,:     '.,:</text>
+      </g>
+    </g>
 
     <text class="in" x="440" y="112" text-anchor="middle" font-family="'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="700" fill="#eceff4" letter-spacing="1">Samuele Ruaro</text>
     <text class="in2" x="440" y="148" text-anchor="middle" font-family="'JetBrains Mono','Fira Code',Consolas,monospace" font-size="16" fill="#9aa4b2">fullstack dev · backend at heart · homelab tinkerer</text>

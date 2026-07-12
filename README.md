@@ -9,13 +9,6 @@
 When I'm not writing code, I'm probably tinkering with my homelab or wondering why a service won't start.
 
 <div align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=1brecane&show_icons=true&hide_border=true&bg_color=0b0e14&title_color=e5484d&icon_color=e5484d&text_color=c9d1d9&ring_color=e5484d&border_radius=10" alt="GitHub stats">
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=1brecane&layout=compact&hide_border=true&bg_color=0b0e14&title_color=e5484d&text_color=c9d1d9&border_radius=10&langs_count=8" alt="Top languages">
-</div>
-
-<br>
-
-<div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/1brecane/1brecane/output/github-snake-dark.svg">
     <img src="https://raw.githubusercontent.com/1brecane/1brecane/output/github-snake.svg" alt="Contribution snake" width="100%">
