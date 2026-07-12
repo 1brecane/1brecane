@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="320" viewBox="0 0 880 320" font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,'Liberation Mono',Menlo,monospace" role="img" aria-label="Terminal: samuele@1brecane — fullstack dev, backend at heart">
+  <style>
+    text { white-space: pre; }
+    .cmd  { fill: #dce1e8; font-size: 15px; }
+    .out  { fill: #aab3c0; font-size: 15px; }
+    .dim  { fill: #6b7484; font-size: 15px; }
+    .yel  { fill: #e6b450; }
+    .title{ fill: #8b93a3; font-size: 12px; }
+    .art  { fill: #5d6a80; font-size: 13px; }
+
+    .cover { fill: #141821; }
+    .c1 { animation: type1 14s infinite; }
+    .c2 { animation: type2 14s infinite; }
+    @keyframes type1 {
+      0%, 3%   { transform: translateX(0); animation-timing-function: steps(8, end); }
+      11%, 100%{ transform: translateX(82px); }
+    }
+    @keyframes type2 {
+      0%, 18%  { transform: translateX(0); animation-timing-function: steps(17, end); }
+      32%, 100%{ transform: translateX(162px); }
+    }
+
+    .o { opacity: 0; }
+    .o1 { animation: show 14s infinite; animation-delay: 0s; }
+    @keyframes show { 0%, 13% { opacity: 0; } 14%, 100% { opacity: 1; } }
+    .o2 { animation: show2 14s infinite; }
+    @keyframes show2 { 0%, 34% { opacity: 0; } 35%, 100% { opacity: 1; } }
+    .o3 { animation: show3 14s infinite; }
+    @keyframes show3 { 0%, 38% { opacity: 0; } 39%, 100% { opacity: 1; } }
+    .o4 { animation: show4 14s infinite; }
+    @keyframes show4 { 0%, 42% { opacity: 0; } 43%, 100% { opacity: 1; } }
+    .o5 { animation: show5 14s infinite; }
+    @keyframes show5 { 0%, 47% { opacity: 0; } 48%, 100% { opacity: 1; } }
+
+    .cur { animation: blink 1.12s steps(1, end) infinite; }
+    @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
+    .tw { animation: twinkle 4s ease-in-out infinite; }
+    @keyframes twinkle { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.9; } }
+
+    .float { animation: drift 8s ease-in-out infinite; }
+    @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+      .cover { display: none; }
+      .o { opacity: 1; }
+    }
+  </style>
+
+  <!-- space background -->
+  <rect width="880" height="320" rx="14" fill="#0b0e14" stroke="#1c222d"/>
+
+  <!-- twinkling stars -->
+  <g fill="#dfe3ea">
+    <circle class="tw" cx="590" cy="36"  r="1.4" style="animation-delay:-0.4s"/>
+    <circle class="tw" cx="668" cy="290" r="1.1" style="animation-delay:-1.3s"/>
+    <circle class="tw" cx="760" cy="48"  r="1.2" style="animation-delay:-2.2s"/>
+    <circle class="tw" cx="842" cy="120" r="1.4" style="animation-delay:-3.1s"/>
+    <circle class="tw" cx="820" cy="268" r="1.1" style="animation-delay:-0.9s"/>
+    <circle class="tw" cx="700" cy="24"  r="1.0" style="animation-delay:-1.8s"/>
+    <circle class="tw" cx="560" cy="300" r="1.2" style="animation-delay:-2.7s"/>
+    <circle class="tw" cx="120" cy="14"  r="1.1" style="animation-delay:-1.1s"/>
+    <circle class="tw" cx="330" cy="12"  r="1.2" style="animation-delay:-3.6s"/>
+    <circle class="tw" cx="470" cy="306" r="1.0" style="animation-delay:-0.2s"/>
+    <circle class="tw" cx="36"  cy="304" r="1.2" style="animation-delay:-2.0s"/>
+    <circle class="tw" cx="864" cy="14"  r="1.0" style="animation-delay:-1.6s"/>
+  </g>
+
+  <!-- ascii planet, gently drifting -->
+  <g class="float">
+    <text class="art" x="578" y="86" xml:space="preserve">   .       +                    *</text>
+    <text class="art" x="578" y="103" xml:space="preserve">                 *       +</text>
+    <text class="art" x="578" y="120" xml:space="preserve">           '                  |</text>
+    <text class="art" x="578" y="137" xml:space="preserve">       ()    .-.,="``"=.    - o -</text>
+    <text class="art" x="578" y="154" xml:space="preserve">             '=/_       \     |</text>
+    <text class="art" x="578" y="171" xml:space="preserve">          *   |  '=._    |</text>
+    <text class="art" x="578" y="188" xml:space="preserve">               \     `=./`,        '</text>
+    <text class="art" x="578" y="205" xml:space="preserve">            .   '=.__.=' `='      *</text>
+    <text class="art" x="578" y="222" xml:space="preserve">   +                         +</text>
+    <text class="art" x="578" y="239" xml:space="preserve">        O      *        '       .</text>
+  </g>
+
+  <!-- terminal window -->
+  <rect x="24" y="26" width="520" height="268" rx="10" fill="#141821" stroke="#262c38"/>
+  <path d="M24 60 h520 v-24 a10 10 0 0 0 -10 -10 h-500 a10 10 0 0 0 -10 10 z" fill="#1b212b"/>
+  <circle cx="46" cy="43" r="5.5" fill="#e5484d"/>
+  <circle cx="64" cy="43" r="5.5" fill="#e6b450"/>
+  <circle cx="82" cy="43" r="5.5" fill="#57ab5a"/>
+  <text class="title" x="284" y="47" text-anchor="middle">samuele@1brecane: ~</text>
+
+  <clipPath id="term">
+    <rect x="24" y="60" width="520" height="234"/>
+  </clipPath>
+
+  <g clip-path="url(#term)">
+    <!-- $ whoami -->
+    <text class="cmd yel" x="44" y="92">$</text>
+    <text class="cmd" x="62" y="92" textLength="54" lengthAdjust="spacing">whoami</text>
+    <rect class="cover c1" x="40" y="76" width="82" height="22"/>
+
+    <!-- output 1 -->
+    <text class="out o o1" x="44" y="118" xml:space="preserve">samuele — fullstack dev, backend at heart</text>
+
+    <!-- $ cat ./about.txt -->
+    <text class="cmd yel" x="44" y="152">$</text>
+    <text class="cmd" x="62" y="152" textLength="135" lengthAdjust="spacing">cat ./about.txt</text>
+    <rect class="cover c2" x="40" y="136" width="162" height="22"/>
+
+    <!-- output 2 -->
+    <text class="out o o2" x="44" y="178" xml:space="preserve">node · laravel · mysql · redis · mongo · rabbitmq</text>
+    <text class="out o o3" x="44" y="200" xml:space="preserve">docker · proxmox · linux · homelab tinkerer</text>
+    <text class="dim o o4" x="44" y="222" xml:space="preserve"># probably wondering why a service won't start</text>
+
+    <!-- idle prompt -->
+    <g class="o o5">
+      <text class="cmd yel" x="44" y="256">$</text>
+      <rect class="cur" x="62" y="242" width="9" height="17" fill="#e6b450"/>
+    </g>
+  </g>
+</svg>
