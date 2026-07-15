@@ -18,6 +18,13 @@ When I'm not writing code, I'm probably tinkering with my homelab or wondering w
   </picture>
 </div>
 
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
+    <img src="assets/footer-light.svg" alt="" width="880">
+  </picture>
+</div>
+
 ---
 
 <div align="center">
