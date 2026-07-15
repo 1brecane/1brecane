@@ -1,5 +1,8 @@
 <div align="center">
-  <img src="assets/hero.svg" alt="Samuele Ruaro — fullstack dev, backend at heart" width="100%">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
+    <img src="assets/hero-light.svg" alt="Samuele Ruaro — fullstack dev, backend at heart" width="100%">
+  </picture>
 </div>
 
 ## Hey, I'm Samuele
