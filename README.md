@@ -11,6 +11,14 @@
 
 When I'm not writing code, I'm probably tinkering with my homelab or wondering why a service won't start.
 
+```text
+$ cat stack.txt
+backend    node.js · php / laravel
+data       mysql · mongodb · redis
+queue      rabbitmq
+infra      docker · proxmox · linux
+```
+
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/1brecane/1brecane/output/github-snake-dark.svg">
@@ -21,9 +29,9 @@ When I'm not writing code, I'm probably tinkering with my homelab or wondering w
 ---
 
 <div align="center">
-  <a href="https://samueleruaro.com"><img src="https://img.shields.io/badge/samueleruaro.com-0b0e14?style=for-the-badge&logo=firefoxbrowser&logoColor=e5484d" alt="Portfolio"></a>
-  <a href="https://www.linkedin.com/in/samuele-ruaro-145251307/"><img src="https://img.shields.io/badge/LinkedIn-0b0e14?style=for-the-badge&logo=linkedin&logoColor=e5484d" alt="LinkedIn"></a>
-  <a href="mailto:samueleruaro@gmail.com"><img src="https://img.shields.io/badge/Email-0b0e14?style=for-the-badge&logo=gmail&logoColor=e5484d" alt="Email"></a>
-  <br><br>
-  📍 Verona, Italy
+
+`$` [`samueleruaro.com`](https://samueleruaro.com) &nbsp;·&nbsp; [`linkedin`](https://www.linkedin.com/in/samuele-ruaro-145251307/) &nbsp;·&nbsp; [`email`](mailto:samueleruaro@gmail.com)
+
+📍 Verona, Italy
+
 </div>
