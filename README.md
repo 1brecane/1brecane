@@ -11,14 +11,6 @@
 
 When I'm not writing code, I'm probably tinkering with my homelab or wondering why a service won't start.
 
-```text
-$ cat stack.txt
-backend    node.js · php / laravel
-data       mysql · mongodb · redis
-queue      rabbitmq
-infra      docker · proxmox · linux
-```
-
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/1brecane/1brecane/output/github-snake-dark.svg">
@@ -30,7 +22,7 @@ infra      docker · proxmox · linux
 
 <div align="center">
 
-`$` [`samueleruaro.com`](https://samueleruaro.com) &nbsp;·&nbsp; [`linkedin`](https://www.linkedin.com/in/samuele-ruaro-145251307/) &nbsp;·&nbsp; [`email`](mailto:samueleruaro@gmail.com)
+[`samueleruaro.com`](https://samueleruaro.com) &nbsp;·&nbsp; [`linkedin`](https://www.linkedin.com/in/samuele-ruaro-145251307/) &nbsp;·&nbsp; [`email`](mailto:samueleruaro@gmail.com)
 
 📍 Verona, Italy
 
