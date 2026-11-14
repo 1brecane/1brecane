@@ -3,7 +3,9 @@ name: Generate profile art
 on:
   schedule:
     - cron: "0 3 * * *"
-    - cron: "5 23 * * *" # just after midnight in Rome in winter, so the day's body turns over on time
+    # Just after midnight in Rome, in summer (22 UTC) and in winter (23 UTC), so the day's body turns over on time.
+    - cron: "5 22 * * *"
+    - cron: "5 23 * * *"
   workflow_dispatch:
   push:
     branches:
@@ -36,7 +38,7 @@ jobs:
           PORTFOLIO_DIR: portfolio
 
       - name: Generate the day's celestial body
-        run: node scripts/generate.ts portfolio dist
+        run: node scripts/generate.ts portfolio dist && test -s dist/hero.svg # publishing replaces the branch: never without a hero
 
       - name: Generate snake SVGs
         uses: Platane/snk/svg-only@v3

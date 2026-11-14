@@ -49,6 +49,7 @@ test('run text is escaped and keeps its leading blanks', () => {
   const svg = buildHeroSvg([[[{ text: '  <&', color: '#ffffff' }]]], opts)
   assert.ok(svg.includes('  &lt;&amp;'))
   assert.match(svg, /<text[^>]*xml:space="preserve"[^>]*>[^\n]*  &lt;&amp;/)
+  assert.match(svg, /<text[^>]*style="white-space:pre"/)
 })
 
 test('a colour used in several frames becomes one css class', () => {

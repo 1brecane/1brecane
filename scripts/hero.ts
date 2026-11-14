@@ -66,7 +66,7 @@ export function buildHeroSvg(frames: FrameRows[], o: HeroOptions): string {
       if (glyphs === 0) return ''
       const spans = runs.map((r) => `<tspan class="${classFor(r.color)}">${escapeXml(r.text)}</tspan>`).join('')
       const baseline = artTop + y * rh + rh * 0.78
-      return `<text xml:space="preserve" x="${MARGIN}" y="${num(baseline)}" textLength="${num(glyphs * cw)}">${spans}</text>\n`
+      return `<text xml:space="preserve" style="white-space:pre" x="${MARGIN}" y="${num(baseline)}" textLength="${num(glyphs * cw)}">${spans}</text>\n`
     })
     return `<g class="f f${i}">\n${texts.join('')}</g>\n`
   })
