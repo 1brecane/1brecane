@@ -1,15 +1,12 @@
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
-    <img src="assets/hero-light.svg" alt="Samuele Ruaro — fullstack dev, backend at heart" width="100%">
-  </picture>
+  <a href="https://samueleruaro.com">
+    <img src="https://raw.githubusercontent.com/1brecane/1brecane/output/hero.svg" alt="Samuele Ruaro: today's celestial body, ray-cast as ASCII" width="100%">
+  </a>
 </div>
 
-## Hey, I'm Samuele
+**Fullstack developer, backend at heart.** More at home with APIs, microservices and databases than fighting with CSS, and usually found tinkering with a homelab.
 
-**Fullstack developer** with a strong preference for the **backend** — I'm way more at home dealing with APIs, microservices, and databases than fighting with CSS.
-
-When I'm not writing code, I'm probably tinkering with my homelab or wondering why a service won't start.
+The image above is not a picture. It is the celestial body today is named after, ray-cast per character by [the code of samueleruaro.com](https://github.com/1brecane/portfolio) and redrawn here every night. Seven days, seven bodies.
 
 <div align="center">
   <picture>

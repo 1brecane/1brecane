@@ -15,7 +15,7 @@
       .cur { animation: none; opacity: 1; }
     }
   </style>
-  <g font-family="'JetBrains Mono','Fira Code',Consolas,'Liberation Mono',Menlo,monospace" font-size="16" fill="#c1272d">
+  <g font-family="'JetBrains Mono','Fira Code',Consolas,'Liberation Mono',Menlo,monospace" font-size="16" fill="#7d6b47">
     <text x="392" y="24" textLength="19.2" lengthAdjust="spacing">$ </text>
     <g clip-path="url(#reveal)" transform="translate(411.2, 0)">
       <text x="0" y="24" textLength="76.8" lengthAdjust="spacing">rm -rf ~</text>
