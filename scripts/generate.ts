@@ -9,12 +9,14 @@ import { pathToFileURL } from 'node:url'
 import { buildHeroSvg } from './hero.ts'
 import type { FrameRows, Run } from './hero.ts'
 
-const COLS = 104
-const ROWS = 30
+const COLS = 56
+const ROWS = 26
+const BOTTOM = 0.96 // how far down the frame the body may reach
 const FRAMES = 14
 const FRAME_MS = 450
 const NAME = 'Samuele Ruaro'
-const LINKS = ['samueleruaro.com', 'linkedin', 'email']
+const ROLE = 'fullstack, backend at heart'
+const FROM = 'Verona, Italy'
 
 // What the generator uses of the portfolio's modules.
 interface Body {
@@ -34,12 +36,10 @@ interface Frame {
 }
 interface Portfolio {
   BODIES: readonly Body[]
-  DAY_NAMES: readonly string[]
   bodyForDay(day: number): Body
   createFrameRenderer(cols: number, rows: number, body: Body, bottomFrac?: number): (t: number) => Frame
   glyphFor(level: number, shape: number): string
   cellRgb(hex: string, level: number): [number, number, number]
-  FRAME_BOTTOM: number
 }
 
 export function romeWeekday(now: Date): number {
@@ -57,12 +57,8 @@ export function frameTimes(lightPeriodMs: number, lightPhase: number, n: number)
 async function loadPortfolio(dir: string): Promise<Portfolio> {
   if (!existsSync(join(dir, 'src/ascii/frame.ts'))) throw new Error(`portfolio not found: ${dir}`)
   const load = (file: string) => import(pathToFileURL(resolve(dir, file)).href)
-  const [bodies, frame, config] = await Promise.all([
-    load('src/ascii/bodies.ts'),
-    load('src/ascii/frame.ts'),
-    load('src/config.ts'),
-  ])
-  return { ...bodies, ...frame, FRAME_BOTTOM: config.FRAME_BOTTOM }
+  const [bodies, frame] = await Promise.all([load('src/ascii/bodies.ts'), load('src/ascii/frame.ts')])
+  return { ...bodies, ...frame }
 }
 
 const hex = (rgb: readonly number[]): string => '#' + rgb.map((v) => v.toString(16).padStart(2, '0')).join('')
@@ -100,14 +96,15 @@ export async function generate(portfolioDir: string, outDir: string, now = new D
   mkdirSync(outDir, { recursive: true })
   const written: string[] = []
   for (const body of p.BODIES) {
-    const render = p.createFrameRenderer(COLS, ROWS, body, p.FRAME_BOTTOM)
+    // Without its own placement the portfolio fits the whole body in the frame and centres it.
+    const render = p.createFrameRenderer(COLS, ROWS, { ...body, place: undefined }, BOTTOM)
     const frames = frameTimes(body.lightPeriodMs, body.lightPhase, FRAMES).map((t) => frameRows(render(t), p))
     const svg = buildHeroSvg(frames, {
       cols: COLS,
       rows: ROWS,
-      label: `${p.DAY_NAMES[body.day]} · ${body.name}`.toUpperCase(),
       name: NAME,
-      links: LINKS,
+      fields: [['role', ROLE], ['from', FROM], ['today', body.name]],
+      accent: body.palette[3],
       frameMs: FRAME_MS,
     })
     const path = join(outDir, `hero-${body.name.toLowerCase()}.svg`)

@@ -1,5 +1,5 @@
-// Builds the profile's hero: a dark card with frames of ASCII art, a day label, the name and the
-// links. GitHub shows README images through <img>, so the SVG carries no script, no web font and
+// Builds the profile's hero: a dark card with frames of ASCII art on the left and the name with a
+// few labelled fields on the right. GitHub shows README images through <img>, so the SVG carries no script, no web font and
 // no external resource; the frames are switched with CSS alone.
 
 export interface Run {
@@ -10,18 +10,22 @@ export type FrameRows = Run[][] // one array of runs per row, left to right; bla
 export interface HeroOptions {
   cols: number
   rows: number
-  label: string
   name: string
-  links: string[] // shown as text: the clickable links live in the README
+  fields: [label: string, value: string][]
+  accent: string // "#rrggbb", for the name and the labels
   frameMs: number
 }
 
 const WIDTH = 880
-const MARGIN = 24
+const HEIGHT = 398
+const ART_X = 20
+const ART_Y = 18
+const ART_WIDTH = 390
+const TEXT_X = 450
+const VALUE_X = 560
 const BG = '#0b0c0e'
 const TEXT = '#f2efe8'
-const MUTED = '#9a968c'
-const LINK = '#e8d096'
+const RULE = '#5a5750'
 const FONT =
   "ui-monospace,'SF Mono','Cascadia Mono','JetBrains Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace"
 const GLYPH_EM_ADVANCE = 0.6 // a monospace glyph is about 0.6 em wide
@@ -44,14 +48,9 @@ function frameKeyframes(i: number, n: number): string {
 }
 
 export function buildHeroSvg(frames: FrameRows[], o: HeroOptions): string {
-  const cw = (WIDTH - 2 * MARGIN) / o.cols
+  const cw = ART_WIDTH / o.cols
   const rh = 2 * cw
   const fontSize = cw / GLYPH_EM_ADVANCE
-  const labelY = 38
-  const artTop = 54
-  const nameY = artTop + o.rows * rh + 44
-  const linksY = nameY + 30
-  const height = Math.round(linksY + 30)
 
   const classes = new Map<string, string>()
   const classFor = (color: string): string => {
@@ -65,8 +64,8 @@ export function buildHeroSvg(frames: FrameRows[], o: HeroOptions): string {
       const glyphs = runs.reduce((sum, r) => sum + [...r.text].length, 0)
       if (glyphs === 0) return ''
       const spans = runs.map((r) => `<tspan class="${classFor(r.color)}">${escapeXml(r.text)}</tspan>`).join('')
-      const baseline = artTop + y * rh + rh * 0.78
-      return `<text xml:space="preserve" style="white-space:pre" x="${MARGIN}" y="${num(baseline)}" textLength="${num(glyphs * cw)}">${spans}</text>\n`
+      const baseline = ART_Y + y * rh + rh * 0.78
+      return `<text xml:space="preserve" style="white-space:pre" x="${ART_X}" y="${num(baseline)}" textLength="${num(glyphs * cw)}">${spans}</text>\n`
     })
     return `<g class="f f${i}">\n${texts.join('')}</g>\n`
   })
@@ -81,19 +80,23 @@ export function buildHeroSvg(frames: FrameRows[], o: HeroOptions): string {
     css += '@media (prefers-reduced-motion:reduce){.f{animation:none}}'
   }
 
-  const links = o.links
-    .map((l, i) => `<tspan${i ? ' dx="28"' : ''}>${escapeXml(l)}</tspan>`)
-    .join('')
+  const text = (x: number, y: number, size: number, fill: string, s: string): string =>
+    `<text x="${x}" y="${y}" font-size="${size}" fill="${fill}">${escapeXml(s)}</text>\n`
+  const fields = o.fields.map(([label, value], i) => {
+    const y = 190 + 30 * i
+    return text(TEXT_X, y, 15, o.accent, label) + text(VALUE_X, y, 15, TEXT, value)
+  })
+  const description = [o.name, ...o.fields.map(([, value]) => value)].join(', ')
 
   return (
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" role="img" aria-label="${escapeXml(`${o.name}, ${o.label}`)}">\n` +
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" role="img" aria-label="${escapeXml(description)}">\n` +
     `<style>${css}</style>\n` +
-    `<rect width="${WIDTH}" height="${height}" rx="10" fill="${BG}"/>\n` +
+    `<rect width="${WIDTH}" height="${HEIGHT}" rx="10" fill="${BG}"/>\n` +
     `<g font-family="${FONT}">\n` +
-    `<text x="${MARGIN}" y="${labelY}" font-size="12" letter-spacing="1.7" fill="${MUTED}">${escapeXml(o.label)}</text>\n` +
     `<g font-size="${num(fontSize)}">\n${groups.join('')}</g>\n` +
-    `<text x="${MARGIN}" y="${num(nameY)}" font-size="28" fill="${TEXT}">${escapeXml(o.name)}</text>\n` +
-    `<text x="${MARGIN}" y="${num(linksY)}" font-size="16" fill="${LINK}">${links}</text>\n` +
+    text(TEXT_X, 130, 24, o.accent, o.name) +
+    text(TEXT_X, 152, 16, RULE, '─'.repeat(13)) +
+    fields.join('') +
     `</g>\n</svg>\n`
   )
 }
