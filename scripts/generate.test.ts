@@ -37,6 +37,20 @@ test('generate writes the seven bodies and today as hero.svg', async (t) => {
   for (const path of written) {
     assert.ok(readFileSync(path, 'utf8').startsWith('<svg'), path)
     assert.ok(statSync(path).size < 400_000, `${basename(path)} is ${statSync(path).size} bytes`)
+    const svg = readFileSync(path, 'utf8')
+    const rows = [...svg.matchAll(/<text xml:space="preserve"[^>]* x="([\d.]+)" y="([\d.]+)" textLength="([\d.]+)"/g)]
+    assert.ok(rows.length > 0, path)
+    for (const [, x, y, len] of rows) {
+      assert.ok(Number(x) + Number(len) <= 410.1, `${path}: art reaches the text`)
+      assert.ok(Number(y) <= 398, `${path}: art leaves the card`)
+    }
+    // A body that runs off the 56 column frame leaves solid glyphs in an outer column. Faint ones
+    // there are stars, and "o" is a far moon. Mercury's right column is the Sun's edge, on purpose.
+    for (const [, line] of svg.matchAll(/<text xml:space="preserve"[^>]*>(.*)<\/text>/g)) {
+      const cells = [...line.replace(/<[^>]+>/g, '').replace(/&(amp|lt|gt|quot);/g, '?')]
+      const edges = [cells[0], /mercury/.test(path) ? undefined : cells[55]]
+      for (const c of edges) assert.ok(c === undefined || ' .:o'.includes(c), `${path}: "${c}" at the edge of the art`)
+    }
   }
   assert.deepEqual(
     written.map((p) => basename(p)).sort(),
@@ -44,5 +58,5 @@ test('generate writes the seven bodies and today as hero.svg', async (t) => {
   )
   const today = readFileSync(join(out, 'hero.svg'), 'utf8')
   assert.equal(today, readFileSync(join(out, 'hero-saturn.svg'), 'utf8'))
-  assert.ok(today.includes('SATURDAY · SATURN'))
+  assert.ok(today.includes('>Saturn<'))
 })

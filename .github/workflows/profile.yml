@@ -40,15 +40,6 @@ jobs:
       - name: Generate the day's celestial body
         run: node scripts/generate.ts portfolio dist && test -s dist/hero.svg # publishing replaces the branch: never without a hero
 
-      - name: Generate snake SVGs
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          github_token: ${{ secrets.PAT_TOKEN }}
-          outputs: |
-            dist/github-snake.svg?palette=github-light&color_snake=#7d6b47
-            dist/github-snake-dark.svg?palette=github-dark&color_snake=#e8d096
-
       - name: Publish to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:

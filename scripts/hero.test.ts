@@ -6,9 +6,9 @@ import type { FrameRows, HeroOptions } from './hero.ts'
 const opts: HeroOptions = {
   cols: 10,
   rows: 3,
-  label: 'SATURDAY · SATURN',
   name: 'Samuele Ruaro',
-  links: ['samueleruaro.com', 'linkedin', 'email'],
+  accent: '#e8d096',
+  fields: [['role', 'fullstack, backend at heart'], ['from', 'Verona, Italy'], ['today', 'Saturn']],
   frameMs: 450,
 }
 
@@ -20,12 +20,19 @@ test('escapeXml escapes the XML special characters', () => {
   assert.equal(escapeXml('a<&>"'), 'a&lt;&amp;&gt;&quot;')
 })
 
-test('the card is an 880 wide svg on the site background with label, name and links', () => {
+test('the card is an 880 by 398 svg on the site background with name and fields', () => {
   const svg = buildHeroSvg([frame('#aabbcc')], opts)
   assert.ok(svg.startsWith('<svg'))
   assert.ok(svg.includes('width="880"'))
+  assert.ok(svg.includes('height="398"'))
   assert.ok(svg.includes('#0b0c0e'))
-  for (const s of [opts.label, opts.name, ...opts.links]) assert.ok(svg.includes(s), s)
+  for (const s of [opts.name, ...opts.fields.flat()]) assert.ok(svg.includes(s), s)
+})
+
+test('title and fields are escaped', () => {
+  const svg = buildHeroSvg([frame('#aabbcc')], { ...opts, name: 'a<b', fields: [['r&d', 'x>y']] })
+  for (const s of ['a&lt;b', 'r&amp;d', 'x&gt;y']) assert.ok(svg.includes(s), s)
+  assert.ok(!svg.includes('a<b'))
 })
 
 test('the svg is self-contained: no scripts, links or external resources', () => {
