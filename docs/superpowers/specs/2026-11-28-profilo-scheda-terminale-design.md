@@ -28,13 +28,13 @@ La pagina di oggi non piace: occupa troppo, ripete le stesse cose e usa stili sl
 - Righe: `role` fullstack, backend at heart; `from` Verona, Italy; `today` nome del corpo.
 - Niente righe `code`, `building` e `infra`.
 - Via snake, footer `rm -rf ~` e doppioni.
-- Avatar: Plutone a pixel, variante B (quasi tutto illuminato, cuore al centro).
+- Avatar: Marte a pixel (scelto dopo aver visto Plutone accanto alla scheda).
 
 ## Scelte mie (da controllare)
 - Scheda 880 x 398, fondo scuro anche in tema chiaro. Corpo intero e centrato nella metà sinistra (griglia 56 x 26, senza l'inquadratura `place` del portfolio), lune comprese; 14 fotogrammi avanti e indietro, 450 ms.
 - Titolo ed etichette nel colore `palette[3]` del corpo.
 - README: la scheda (cliccabile, porta al sito) e sotto una riga di link: samueleruaro.com, linkedin, email. Spariscono i due paragrafi di testo e la riga con la località.
-- La rotazione resta di sette giorni; Plutone è solo l'avatar.
+- La rotazione resta di sette giorni; l'avatar è un'immagine fissa di Marte.
 - Workflow: si toglie il passo dello snake (`PAT_TOKEN` non serve più al workflow); orari invariati. Si eliminano `assets/footer-*.svg`.
 - Avatar esportato come `assets/avatar.png`, 800 x 800, senza griglia visibile tra i pixel; lo carichi tu nelle impostazioni di GitHub.
 

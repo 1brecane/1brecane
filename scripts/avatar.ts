@@ -1,4 +1,4 @@
-// Renders the profile picture: Pluto as pixel art, drawn by the portfolio's scene code.
+// Renders the profile picture: Mars as pixel art, drawn by the portfolio's scene code.
 //
 //   node scripts/avatar.ts <portfolio-dir> <out.png>
 
@@ -16,14 +16,13 @@ const LIGHT_AT = 0.2 // how far into the light's period the picture is taken
 
 export async function avatarPixels(portfolioDir: string): Promise<Uint8Array> {
   const load = (file: string) => import(pathToFileURL(resolve(join(portfolioDir, file))).href)
-  const [{ PLUTO }, { createFrameRenderer, cellRgb }] = await Promise.all([
+  const [{ MARS }, { createFrameRenderer, cellRgb }] = await Promise.all([
     load('src/ascii/bodies.ts'),
     load('src/ascii/frame.ts'),
   ])
   const body = {
-    ...PLUTO,
+    ...MARS,
     moons: [],
-    companion: undefined,
     place: (w: number, h: number) => ({ cx: w / 2, cy: h / 2, radius: 0.4 * w }),
   }
   const cols = SIZE * CELLS_X

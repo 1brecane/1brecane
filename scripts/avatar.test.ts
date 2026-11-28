@@ -9,13 +9,14 @@ test('encodePng writes a PNG with the given size', () => {
   assert.equal(png.readUInt32BE(20), 3)
 })
 
-test('Pluto is centred and inside the circular crop', async (t) => {
+test('Mars is centred and inside the circular crop', async (t) => {
   const dir = process.env.PORTFOLIO_DIR
   if (!dir) return t.skip('PORTFOLIO_DIR is not set')
   const px = await avatarPixels(dir)
   assert.equal(px.length, 4800)
   const lum = (x: number, y: number) => px[(y * 40 + x) * 3]
   assert.ok(lum(20, 20) > 100)
+  assert.ok(px[(20 * 40 + 20) * 3 + 2] < lum(20, 20) * 0.65, 'the centre is not Mars red')
   for (let y = 0; y < 40; y++)
     for (let x = 0; x < 40; x++)
       if (Math.hypot(x - 19.5, y - 19.5) > 19) assert.ok(lum(x, y) < 100, `${x},${y}`)
